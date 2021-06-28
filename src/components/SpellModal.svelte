@@ -61,14 +61,13 @@
         <p>{spell.concentration ? 'Yes' : 'No'}</p>
       </div>
       <div class="spell-stat">
-        <p><strong>{spell.area_of_effect ? 'AoE' : 'Ritual'}</strong></p>
-        <p>
-          {spell.area_of_effect
-            ? `${spell.area_of_effect.size}ft. ${spell.area_of_effect.type}`
-            : spell.ritual
-            ? 'Yes'
-            : 'No'}
-        </p>
+        {#if spell.damage}
+          <p><strong>Damage Type:</strong></p>
+          <p>{spell.damage.damage_type.name}</p>
+        {:else}
+          <p><strong>Ritual:</strong></p>
+          <p>{spell.ritual ? 'Yes' : 'No'}</p>
+        {/if}
       </div>
     </div>
     <div class="seperator" />
@@ -78,6 +77,12 @@
       {/each}
     </div>
     <br />
+    {#if spell.higher_level}
+      <div class="spell-highlevel">
+        <p><strong>Higher level</strong></p>
+        <p>{spell.higher_level}</p>
+      </div>
+    {/if}
     {#if spell.material}
       <p class="spell-material">{spell.material}</p>
     {/if}
@@ -138,6 +143,9 @@
   }
 
   .spell-desc {
+    text-align: left;
+  }
+  .spell-highlevel {
     text-align: left;
   }
 
