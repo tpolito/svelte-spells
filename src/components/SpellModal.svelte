@@ -110,7 +110,7 @@
     left: 50%;
     top: 50%;
     width: calc(100vw - 4em);
-    max-width: 32em;
+    max-width: 46em;
     max-height: calc(100vh - 4em);
     overflow: auto;
     transform: translate(-50%, -50%);
@@ -154,9 +154,5 @@
     font-size: 14px;
     color: #ccc;
     margin: 4px 0;
-  }
-
-  .spell-learnedby {
-    text-align: left;
   }
 </style>
