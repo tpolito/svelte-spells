@@ -4,7 +4,7 @@
   const dispatch = createEventDispatcher();
   const close = () => dispatch('close');
 
-  export let url;
+  export let url: string;
 
   let spell;
 
@@ -14,7 +14,7 @@
     spell = await res.json();
   });
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: { key: string }) => {
     if (event.key === 'Escape') {
       close();
       return;
@@ -84,7 +84,7 @@
       </div>
     {/if}
     {#if spell.material}
-      <p class="spell-material">{spell.material}</p>
+      <p class="spell-material">- ({spell.material})</p>
     {/if}
   </div>
 {:else}
@@ -153,5 +153,10 @@
     text-align: left;
     font-size: 14px;
     color: #ccc;
+    margin: 4px 0;
+  }
+
+  .spell-learnedby {
+    text-align: left;
   }
 </style>

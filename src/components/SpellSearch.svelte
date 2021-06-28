@@ -20,7 +20,7 @@
     const cleanQuery = query.trim();
 
     if (cleanQuery.length === 0 || cleanQuery === '') {
-      console.log('No valid search term');
+      results = [];
     } else {
       console.log('Searching for ' + cleanQuery);
       const res = await fetch(
